@@ -1,0 +1,8 @@
+---
+- name: Workstation role
+  hosts: localhost
+  connection: local
+  become: true
+  roles:
+    - common
+  tags: workstation
