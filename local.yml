@@ -4,5 +4,5 @@
   connection: local
   become: true
   roles:
-    - common
+    - workstation
   tags: workstation
