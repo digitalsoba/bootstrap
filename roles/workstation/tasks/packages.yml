@@ -1,0 +1,7 @@
+- name: Install common packages
+  package:
+    state: present
+    name:
+      - htop
+      - openssh-client
+      - vim
