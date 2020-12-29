@@ -1,2 +1,12 @@
 ---
 # defaults file for workstation
+common_packages:
+  - curl
+  - git
+  - htop
+  - openssh-client
+  - python3
+  - python3-pip
+  - vim
+  - wget
+  - zsh

@@ -3,7 +3,8 @@
   include_tasks: debian.yml
   when: ansible_facts['os_family'] == 'Debian'
 
-# tasks file for workstation
+- name: Install fonts
+  include_tasks: fonts.yml
+
 - name: Install common packages
   include_tasks: packages.yml
-  
