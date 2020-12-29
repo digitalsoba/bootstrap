@@ -8,3 +8,6 @@
 
 - name: Include packages tasks
   include_tasks: packages.yml
+
+- name: Include oh-my-zsh tasks
+  include_tasks: oh-my-zsh.yml

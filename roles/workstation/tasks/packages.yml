@@ -3,9 +3,3 @@
     state: present
     name: "{{ item }}"
   loop: "{{ common_packages }}"
-
-- name: Download oh-my-zsh installer
-  get_url:
-    url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
-    dest: /tmp/omz-installer.sh
-    mode: '0755'
