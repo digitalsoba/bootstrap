@@ -1,10 +1,10 @@
 ---
-- name: "Debian common"
+- name: Debian common
   include_tasks: debian.yml
   when: ansible_facts['os_family'] == 'Debian'
 
-- name: Install fonts
+- name: Include fonts tasks
   include_tasks: fonts.yml
 
-- name: Install common packages
+- name: Include packages tasks
   include_tasks: packages.yml

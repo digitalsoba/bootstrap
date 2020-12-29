@@ -2,7 +2,7 @@
   package:
     state: present
     name: "{{ item }}"
-  loop: {{ common_packages }}
+  loop: "{{ common_packages }}"
 
 - name: Download oh-my-zsh installer
   get_url:
