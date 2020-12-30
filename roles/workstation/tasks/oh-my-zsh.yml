@@ -1,6 +1,6 @@
 ---
 - name: Check if .oh-my-zsh exists
-  stat: 
+  stat:
     path: /home/anthony/.oh-my-zsh
   register: oh_my_zsh_exists
 
