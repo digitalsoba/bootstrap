@@ -4,12 +4,26 @@
     path: /home/anthony/.oh-my-zsh
   register: oh_my_zsh_exists
 
+- name: Check if .Powerlevel10k exists
+  stat:
+    path: /home/anthony/.oh-my-zsh/custom/themes/powerlevel10k
+  register: p10k_exists
+
 - name: Clone oh-my-zsh
   git:
     repo: https://github.com/ohmyzsh/ohmyzsh.git
     dest: /home/anthony/.oh-my-zsh
     version: master
+    depth: "1"
   when: not oh_my_zsh_exists.stat.exists
+
+- name: Clone Powerlevel10k
+  git:
+    repo: https://github.com/romkatv/powerlevel10k.git
+    dest: /home/anthony/.oh-my-zsh/custom/themes/powerlevel10k
+    version: master
+    depth: "1"
+  when: not p10k_exists.stat.exists
 
 - name: Change user shell to zsh
   user:
