@@ -1,0 +1,5 @@
+---
+- name: Ensure user exists
+  user:
+    name: anthony
+    state: present

@@ -1,4 +1,7 @@
 ---
+- name: Include User tasks
+  include_tasks: user.yml
+
 - name: Debian common
   include_tasks: debian.yml
   when: ansible_os_family == 'Debian' or ansible_os_family == 'Pop!_OS'

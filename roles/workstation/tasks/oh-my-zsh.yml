@@ -25,6 +25,14 @@
     depth: "1"
   when: not p10k_exists.stat.exists
 
+- name: Add .zshrc template
+  template:
+    src: zshrc.j2
+    dest: /home/anthony/.zshrc
+    owner: anthony
+    group: anthony
+    mode: "0644"
+
 - name: Change user shell to zsh
   user:
     name: anthony
