@@ -10,3 +10,8 @@
     dest: /home/anthony/.oh-my-zsh
     version: master
   when: not oh_my_zsh_exists.stat.exists
+
+- name: Change user shell to zsh
+  user:
+    name: anthony
+    shell: /usr/bin/zsh
