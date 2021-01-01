@@ -1,0 +1,21 @@
+- name: Install ffmpeg
+  apt:
+    name: ffmpeg
+    state: present
+    update_cache: yes
+
+- name: Install dirmngr
+  apt:
+    name: dirmngr
+    state: present
+
+- name: Add ppa:obsproject/obs-studio repository
+  apt_repository:
+    repo: 'ppa:obsproject/obs-studio'
+    state: present
+
+- name: Install obs-studio
+  apt:
+    name: obs-studio
+    state: present
+    update_cache: yes

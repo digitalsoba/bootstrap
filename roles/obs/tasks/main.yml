@@ -1,0 +1,5 @@
+---
+# tasks file for obs
+- name: Debian obs tasks
+  include_tasks: debian.yml
+  when: ansible_os_family == 'Debian' or ansible_os_family == 'Pop!_OS'

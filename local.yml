@@ -6,3 +6,11 @@
   roles:
     - workstation
   tags: workstation
+
+- name: OBS role
+  hosts: localhost
+  connection: local
+  become: true
+  roles:
+    - obs
+  tags: obs
