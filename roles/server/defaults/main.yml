@@ -1,0 +1,19 @@
+---
+# defaults file for server
+user: anthony
+github_keys_url: https://github.com/digitalsoba.keys
+common_packages:
+  - apt-transport-https
+  - ca-certificates
+  - curl
+  - fail2ban
+  - gnupg
+  - gnupg-agent
+  - htop
+  - openssh-server
+  - python3
+  - software-properties-common
+  - sudo
+  - tmux
+  - vim
+  - neovim

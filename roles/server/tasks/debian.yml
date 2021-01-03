@@ -1,0 +1,28 @@
+---
+- name: Install common apt packages
+  apt:
+    name: "{{ item }}"
+    update_cache: yes
+    state: present
+  loop: "{{ common_packages }}"
+
+- name: Check if sudo is present
+  group:
+    name: sudo
+    state: present
+
+- name: Create "{{ user }}" and add to sudo
+  user:
+    name: "{{ user }}"
+    state: present
+    groups: sudo
+    shell: /bin/bash
+    createhome: yes
+
+- name: Sudoless password
+  lineinfile:
+    path: /etc/sudoers
+    state: present
+    regexp: "^%sudo"
+    line: "%sudo ALL=(ALL) NOPASSWD: ALL"
+    validate: "visudo -cf %s"
