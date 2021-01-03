@@ -1,5 +1,5 @@
 ---
 - name: Ensure user exists
   user:
-    name: anthony
+    name: "{{ user }}"
     state: present
