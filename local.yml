@@ -7,6 +7,14 @@
     - workstation
   tags: workstation
 
+- name: Server role
+  hosts: localhost
+  connection: local
+  become: true
+  roles:
+    - server
+  tags: server
+
 - name: OBS role
   hosts: localhost
   connection: local
