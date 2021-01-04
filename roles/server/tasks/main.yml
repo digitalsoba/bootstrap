@@ -4,8 +4,5 @@
   include_tasks: debian.yml
   when: ansible_facts['os_family'] == 'Debian'
 
-- name: Set pubkey for "{{ user }}"
-  authorized_key:
-    user: "{{ user }}"
-    state: present
-    key: "{{ github_keys_url }}"
+- name: Include users tasks
+  include_tasks: users.yml

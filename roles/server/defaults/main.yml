@@ -11,10 +11,11 @@ common_packages:
   - gnupg-agent
   - htop
   - openssh-server
+  - net-tools
+  - neovim
   - python3
   - software-properties-common
   - sudo
   - tmux
   - vim
-  - neovim
   - unattended-upgrades
