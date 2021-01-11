@@ -23,7 +23,7 @@ docker==4.4.1
 enrich==1.2.6
 filelock==3.0.12
 flake8==3.8.4
-identify==1.5.10
+identify==1.5.12
 idna==2.10
 Jinja2==2.11.2
 jinja2-time==0.2.0
