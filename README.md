@@ -14,3 +14,8 @@ apt update
 apt install ansible git -y
 ansible-pull -U https://github.com/digitalsoba/bootstrap.git -t server
 ```
+
+or run this script as root 
+```shell
+source <(curl -s https://raw.githubusercontent.com/digitalsoba/bootstrap/main/roles/server/files/init.sh)
+```
