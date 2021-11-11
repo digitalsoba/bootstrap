@@ -1,0 +1,35 @@
+---
+# pyenv
+- name: Install pyenv prequisites
+  package:
+    state: present
+    name: "{{ item }}"
+  loop: "{{ debian_pyenv_prereqs }}"
+  when: ansible_os_family == 'Debian' or ansible_os_family == 'Pop!_OS'
+- name: Check if .pyenv exists
+  stat:
+    path: "/home/{{ user }}/.pyenv"
+  register: pyenv_exists
+- name: Clone pyenv
+  become: yes
+  become_user: "{{ user }}"
+  git:
+    repo: https://github.com/pyenv/pyenv.git
+    dest: "/home/{{ user }}/.pyenv"
+    version: master
+    depth: "1"
+  when: not pyenv_exists.stat.exists
+# tfenv
+- name: Check if .tfenv exists
+  stat:
+    path: "/home/{{ user }}/.tfenv"
+  register: tfenv_exists
+- name: Clone tfenv
+  become: yes
+  become_user: "{{ user }}"
+  git:
+    repo: https://github.com/tfutils/tfenv.git
+    dest: "/home/{{ user }}/.tfenv"
+    version: master
+    depth: "1"
+  when: not tfenv_exists.stat.exists

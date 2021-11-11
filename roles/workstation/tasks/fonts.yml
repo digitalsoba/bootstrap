@@ -2,28 +2,34 @@
   file:
     path: "/home/{{ user }}/.fonts"
     state: directory
-    mode: 0755
-
+    group: "{{ user }}"
+    owner: "{{ user }}"
+    mode: 0644
 - name: Install MesloLGS NF Regular
   get_url:
     url: https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf
     dest: "/home/{{ user }}/.fonts/MesloLGS NF Regular.ttf"
-    mode: 0755
-
+    group: "{{ user }}"
+    owner: "{{ user }}"
+    mode: 0644
 - name: Install MesloLGS NF Bold
   get_url:
     url: https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf
     dest: "/home/{{ user }}/.fonts/MesloLGS NF Bold.ttf"
-    mode: 0755
-
+    group: "{{ user }}"
+    owner: "{{ user }}"
+    mode: 0644
 - name: Install MesloLGS NF Italic
   get_url:
     url: https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf
     dest: "/home/{{ user }}/.fonts/MesloLGS NF Italic.ttf"
-    mode: 0755
-
+    group: "{{ user }}"
+    owner: "{{ user }}"
+    mode: 0644
 - name: Install MesloLGS NF Bold Italic
   get_url:
     url: https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
     dest: "/home/{{ user }}/.fonts/MesloLGS NF Bold Italic.ttf"
-    mode: 0755
+    group: "{{ user }}"
+    owner: "{{ user }}"
+    mode: 0644

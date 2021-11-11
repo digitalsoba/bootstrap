@@ -15,13 +15,6 @@ platforms:
     command: ""
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
-  - name: debian10
-    image: geerlingguy/docker-debian10-ansible:latest
-    pre_build_image: true
-    privileged: true
-    command: ""
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
 provisioner:
   name: ansible
 verifier:

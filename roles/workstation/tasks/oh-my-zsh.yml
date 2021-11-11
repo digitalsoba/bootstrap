@@ -3,45 +3,28 @@
   stat:
     path: "/home/{{ user }}/.oh-my-zsh"
   register: oh_my_zsh_exists
-
-- name: Check if .Powerlevel10k exists
-  stat:
-    path: "/home/{{ user }}/.oh-my-zsh/custom/themes/powerlevel10k"
-  register: p10k_exists
-
 - name: Clone oh-my-zsh
+  become: yes
+  become_user: "{{ user }}"
   git:
     repo: https://github.com/ohmyzsh/ohmyzsh.git
     dest: "/home/{{ user }}/.oh-my-zsh"
     version: master
     depth: "1"
   when: not oh_my_zsh_exists.stat.exists
-
-- name: Clone Powerlevel10k
+- name: Check if starship.rs is installed
+  command: starship --version
+  register: starship_exists
+  ignore_errors: yes
+  changed_when: false
+- name: Install starship.rs
+  shell: sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- -y
+  when: starship_exists.rc not in [0]
+- name: Install zsh-autosuggestions plugin
+  become: yes
+  become_user: "{{ user }}"
   git:
-    repo: https://github.com/romkatv/powerlevel10k.git
-    dest: "/home/{{ user }}/.oh-my-zsh/custom/themes/powerlevel10k"
+    repo: https://github.com/zsh-users/zsh-autosuggestions.git
+    dest: "/home/{{ user }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
     version: master
     depth: "1"
-  when: not p10k_exists.stat.exists
-
-- name: Add .zshrc template
-  template:
-    src: zshrc.j2
-    dest: "/home/{{ user }}/.zshrc"
-    owner: "{{ user }}"
-    group: "{{ user }}"
-    mode: "0644"
-
-- name: Add .p10k.zsh template
-  copy:
-    src: p10k.zsh
-    dest: "/home/{{ user }}/.p10k.zsh"
-    owner: "{{ user }}"
-    group: "{{ user }}"
-    mode: "0644"
-
-- name: Change user shell to zsh
-  user:
-    name: "{{ user }}"
-    shell: /usr/bin/zsh

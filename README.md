@@ -13,7 +13,7 @@ pip install -r requirements.txt
 
 ### Running roles test
 Change directory into the role and run `molecue test`
-## Workstastions
+## Workstation
 Run `ansible-pull -U https://github.com/digitalsoba/bootstrap.git -K -t workstation` to run the workstation role.
 
 ## Servers
