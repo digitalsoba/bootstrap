@@ -1,3 +1,7 @@
+- name: Update cache
+  apt:
+    update_cache: yes
+  when: ansible_os_family == 'Debian' or ansible_os_family == 'Pop!_OS'
 - name: Install common packages
   package:
     state: present
