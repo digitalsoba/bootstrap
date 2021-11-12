@@ -33,3 +33,16 @@
     version: master
     depth: "1"
   when: not tfenv_exists.stat.exists
+- name: Check if /etc/apt/trusted.gpg.d/packages.microsoft.gpg exists
+  stat:
+    path: "/etc/apt/trusted.gpg.d/packages.microsoft.gpg"
+  register: packages_microsoft_gpg_exists
+  when: ansible_os_family == 'Debian' or ansible_os_family == 'Pop!_OS'
+- name: Add Microsoft GPG key
+  shell: wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > /etc/apt/trusted.gpg.d/packages.microsoft.gpg
+  when: ansible_os_family == 'Debian' or ansible_os_family == 'Pop!_OS' and not packages_microsoft_gpg_exists.stat.exists
+- name: Install vscode
+  apt:
+    name: code
+    state: present
+  when: ansible_os_family == 'Debian' or ansible_os_family == 'Pop!_OS'
