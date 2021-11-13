@@ -22,7 +22,7 @@
     repo: deb [arch=amd64] https://download.docker.com/linux/{{ ansible_distribution|lower }} {{ ansible_distribution_release }} stable
     state: present
 - name: Install docker and its dependecies
-  ignore_errors: yes # ignore errors for now since it's broken on M1 + molecule
+  ignore_errors: yes  # noqa ignore-errors
   apt: 
     name: "{{ packages }}"
     state: present
