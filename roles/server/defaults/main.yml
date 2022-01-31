@@ -6,7 +6,6 @@ common_packages:
   - apt-transport-https
   - ca-certificates
   - curl
-  - fail2ban
   - gnupg
   - gnupg-agent
   - htop
