@@ -5,14 +5,13 @@
     state: present
     key: "{{ github_keys_url }}"
 
-
 - name: Copy sshd config
   template:
-      dest: /etc/ssh/sshd_config
-      src: sshd_config.j2
-      owner: root
-      group: root
-      mode: '0644'
+    dest: /etc/ssh/sshd_config
+    src: sshd_config.j2
+    owner: root
+    group: root
+    mode: "0644"
   notify: Restart sshd
 
 - name: Ensure sshd service is running

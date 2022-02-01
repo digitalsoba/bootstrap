@@ -25,4 +25,4 @@
     content: "{{ user }}  ALL=(ALL)  NOPASSWD:  ALL"
     owner: root
     group: root
-    mode: '0440'
+    mode: "0440"

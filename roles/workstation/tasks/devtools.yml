@@ -45,7 +45,7 @@
   when: not packages_microsoft_gpg_exists.stat.exists
 - name: Add Microsoft apt repository
   apt_repository:
-    repo: 'deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main'
+    repo: "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
     state: present
   when: ansible_os_family == 'Debian' or ansible_os_family == 'Pop!_OS'
 - name: Install code
