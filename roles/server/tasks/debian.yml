@@ -4,25 +4,9 @@
     name: "{{ item }}"
     update_cache: yes
     state: present
-  loop: "{{ common_packages }}"
+  loop: "{{ apt_packages }}"
 
 - name: Check if sudo is present
   group:
     name: sudo
     state: present
-
-- name: Create {{ user }} and add to sudo
-  user:
-    name: "{{ user }}"
-    state: present
-    groups: sudo
-    shell: /bin/bash
-    createhome: yes
-
-- name: Add {{ user }} to sudoers file
-  copy:
-    dest: "/etc/sudoers.d/{{ user }}"
-    content: "{{ user }}  ALL=(ALL)  NOPASSWD:  ALL"
-    owner: root
-    group: root
-    mode: "0440"

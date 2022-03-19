@@ -3,18 +3,20 @@
 user: anthony
 github_keys_url: https://github.com/digitalsoba.keys
 common_packages:
-  - apt-transport-https
   - ca-certificates
   - curl
   - gnupg
-  - gnupg-agent
   - htop
   - openssh-server
   - net-tools
   - neovim
   - python3
-  - software-properties-common
   - sudo
   - tmux
   - vim
+apt_packages:
+  - apt-transport-https
+  - gnupg-agent
+  - software-properties-common
   - unattended-upgrades
+sudoGroup: "{{ 'sudo' if ansible_facts['os_family'] == 'Debian' else 'wheel' }}"
