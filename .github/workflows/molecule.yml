@@ -1,5 +1,9 @@
 name: Ansible roles test
-on: [push]
+on:  
+  push:
+  pull_request:
+    branches:
+      - main
 jobs:
   test-server:
     runs-on: ubuntu-latest
