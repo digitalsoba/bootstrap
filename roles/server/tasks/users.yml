@@ -1,4 +1,20 @@
 ---
+- name: Create {{ user }} and add to sudo
+  user:
+    name: "{{ user }}"
+    state: present
+    groups: "{{ sudoGroup }}"
+    shell: /bin/bash
+    createhome: yes
+
+- name: Add {{ user }} to sudoers file
+  copy:
+    dest: "/etc/sudoers.d/{{ user }}"
+    content: "{{ user }}  ALL=(ALL)  NOPASSWD:  ALL"
+    owner: root
+    group: root
+    mode: "0440"
+
 - name: Set pubkey for {{ user }}
   authorized_key:
     user: "{{ user }}"
