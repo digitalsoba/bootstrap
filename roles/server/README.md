@@ -31,7 +31,7 @@ apt_packages:
   - gnupg-agent
   - software-properties-common
   - unattended-upgrades
-sudoGroup: "{{ 'sudo' if ansible_facts['os_family'] == 'Debian' else 'wheel' }}"
+sudogroup: "{{ 'sudo' if ansible_facts['os_family'] == 'Debian' else 'wheel' }}"
 ```
 
 Dependencies

@@ -3,7 +3,7 @@
   user:
     name: "{{ user }}"
     state: present
-    groups: "{{ sudoGroup }}"
+    groups: "{{ sudogroup }}"
     shell: /bin/bash
     createhome: yes
 
