@@ -2,7 +2,7 @@
 Ansible playbook to bootstrap personal workstations and servers
 
 ## Development
-Ensure you have docker installed to run molecue test and python 3.9+
+Ensure you have docker installed to run molecule test and python 3.9+
 Create a virtual python environment and install pip requirements
 
 ```shell
@@ -12,7 +12,7 @@ pip install -r requirements.txt
 ```
 
 ### Running roles test
-Change directory into the role and run `molecue test`
+Change directory into the role and run `molecule test`
 ## Workstation
 Run `ansible-pull -U https://github.com/digitalsoba/bootstrap.git -K -t workstation` to run the workstation role.
 
