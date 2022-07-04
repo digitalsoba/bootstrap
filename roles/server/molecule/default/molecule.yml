@@ -8,22 +8,8 @@ lint: |
   yamllint .
   ansible-lint
 platforms:
-  - name: ubuntu2204
-    image: geerlingguy/docker-ubuntu2204-ansible:latest
-    pre_build_image: true
-    privileged: true
-    command: ""
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
-  - name: debian10
-    image: geerlingguy/docker-debian10-ansible:latest
-    pre_build_image: true
-    privileged: true
-    command: ""
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
-  - name: rockylinux8
-    image: geerlingguy/docker-rockylinux8-ansible:latest
+  - name: instance
+    image: geerlingguy/docker-${MOLECULE_DISTRO:-ubuntu2204}-ansible:latest
     pre_build_image: true
     privileged: true
     command: ""
