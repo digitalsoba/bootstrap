@@ -1,14 +1,14 @@
 ---
-- name: Create {{ user }} and add to sudo
-  user:
+- name: Create user and add to sudo
+  ansible.builtin.user:
     name: "{{ user }}"
     state: present
     groups: "{{ sudogroup }}"
     shell: /bin/bash
     createhome: yes
 
-- name: Add {{ user }} to sudoers file
-  copy:
+- name: Add user to sudoers file
+  ansible.builtin.copy:
     dest: "/etc/sudoers.d/{{ user }}"
     content: "{{ user }}  ALL=(ALL)  NOPASSWD:  ALL"
     owner: root
@@ -16,13 +16,13 @@
     mode: "0440"
 
 - name: Set pubkey for {{ user }}
-  authorized_key:
+  ansible.posix.authorized_key:
     user: "{{ user }}"
     state: present
     key: "{{ github_keys_url }}"
 
 - name: Copy sshd config
-  template:
+  ansible.builtin.template:
     dest: /etc/ssh/sshd_config
     src: sshd_config.j2
     owner: root
@@ -31,7 +31,7 @@
   notify: Restart sshd
 
 - name: Ensure sshd service is running
-  systemd:
+  ansible.builtin.systemd:
     name: sshd
     state: started
     enabled: yes

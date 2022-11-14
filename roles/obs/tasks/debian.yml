@@ -1,11 +1,11 @@
 - name: Install ffmpeg
-  apt:
+  ansible.builtin.apt:
     name: ffmpeg
     state: present
     update_cache: yes
 
 - name: Install dirmngr
-  apt:
+  ansible.builtin.apt:
     name: dirmngr
     state: present
 
@@ -15,7 +15,7 @@
     state: present
 
 - name: Install obs-studio
-  apt:
+  ansible.builtin.apt:
     name: obs-studio
     state: present
     update_cache: yes

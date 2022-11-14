@@ -1,6 +1,0 @@
----
-- name: Ensure user exists
-  user:
-    name: "{{ user }}"
-    state: present
-    shell: /bin/zsh

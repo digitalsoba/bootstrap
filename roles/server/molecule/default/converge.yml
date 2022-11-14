@@ -1,7 +1,8 @@
 ---
 - name: Converge
   hosts: all
+  become: true
   tasks:
-    - name: "Include server"
-      include_role:
-        name: "server"
+  - name: Initialize role without actually running it
+    ansible.builtin.include_role:
+      name: server
