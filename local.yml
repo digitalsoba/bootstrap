@@ -1,12 +1,4 @@
 ---
-- name: Workstation role
-  hosts: localhost
-  connection: local
-  become: true
-  roles:
-    - workstation
-  tags: workstation
-
 - name: Server role
   hosts: localhost
   connection: local
