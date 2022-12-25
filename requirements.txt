@@ -1,7 +1,7 @@
 aiofiles==22.1.0
 aiohttp==3.8.3
 aiosignal==1.2.0
-ansible==6.0.0
+ansible==6.7.0
 ansible-compat==2.2.7
 ansible-core==2.13.1
 ansible-lint==6.9.1
