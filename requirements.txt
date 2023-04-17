@@ -10,7 +10,7 @@ async-timeout==4.0.2
 attrs==21.4.0
 backports.entry-points-selectable==1.1.0
 bcrypt==3.2.0
-beautifulsoup4==4.11.1
+beautifulsoup4==4.12.2
 binaryornot==0.4.4
 black==22.10.0
 bracex==2.2.1
