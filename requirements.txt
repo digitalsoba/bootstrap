@@ -27,7 +27,7 @@ commonmark==0.9.1
 cookiecutter==2.1.1
 cryptography==36.0.2
 cyberdrop-dl==3.3.29
-distlib==0.3.4
+distlib==0.3.6
 docker==5.0.3
 enrich==1.2.7
 exceptiongroup==1.0.4
