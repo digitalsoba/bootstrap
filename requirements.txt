@@ -8,7 +8,7 @@ ansible-lint==6.9.1
 arrow==1.2.3
 async-timeout==4.0.2
 attrs==21.4.0
-backports.entry-points-selectable==1.1.0
+backports.entry-points-selectable==1.2.0
 bcrypt==3.2.0
 beautifulsoup4==4.11.1
 binaryornot==0.4.4
